@@ -1,0 +1,33 @@
+{
+  "jhipsterReactSchoolApp": {
+    "people": {
+      "home": {
+        "title": "People",
+        "createLabel": "Create a new People",
+        "createOrEditLabel": "Create or edit a People",
+        "search": "Search for People"
+      },
+      "created": "A new People is created with identifier {{ param }}",
+      "updated": "A People is updated with identifier {{ param }}",
+      "deleted": "A People is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete People {{ id }}?"
+      },
+      "detail": {
+        "title": "People"
+      },
+      "photo": "Photo",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "companyName": "Company Name",
+      "entryDate": "Entry Date",
+      "birthDate": "Birth Date",
+      "gender": "Gender",
+      "email": "Email",
+      "phoneNumber": "Phone Number",
+      "isManager": "Is Manager",
+      "manager": "Manager",
+      "managerId": "Manager Id"
+    }
+  }
+}

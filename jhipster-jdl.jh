@@ -1,0 +1,31 @@
+/**
+ * The Employee entity.
+ */
+entity People {
+	/**
+	* The firstname attribute.
+	*/
+    id String,
+    photo String,
+	firstName String,
+	lastName String,
+    companyName String,
+    entryDate LocalDate,
+    birthDate LocalDate,
+    gender String,
+	email String,
+	phoneNumber String,
+	isManager Boolean,
+    manager String,
+    managerId String
+}
+
+
+// Set pagination options
+paginate People with pagination
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

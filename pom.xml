@@ -3,10 +3,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.sfeir.school</groupId>
-    <artifactId>jhipster-react-school</artifactId>
+    <artifactId>jhipster-sfeir-school</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>Jhipster React School</name>
+    <name>Jhipster Sfeir School</name>
 
     <repositories>
         <!-- jhipster-needle-maven-repository -->

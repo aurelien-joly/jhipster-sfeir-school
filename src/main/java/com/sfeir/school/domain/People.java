@@ -2,20 +2,27 @@ package com.sfeir.school.domain;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
+import com.sfeir.school.config.CustomDateTimeDeserializer;
+import com.sfeir.school.config.CustomDateTimeSerializer;
 import io.swagger.annotations.ApiModel;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.elasticsearch.annotations.FieldType;
+import org.springframework.data.elasticsearch.annotations.Mapping;
 import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 /**
@@ -27,8 +34,9 @@ import java.util.Objects;
 public class People implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    
+
     @Id
+    @org.springframework.data.elasticsearch.annotations.Field(type = FieldType.Keyword,fielddata = true)
     private String id;
 
     @Field("photo")
@@ -36,10 +44,12 @@ public class People implements Serializable {
 
     @Field("first_name")
     @JsonProperty("firstname")
+    @org.springframework.data.elasticsearch.annotations.Field(fielddata = true, type = FieldType.Text)
     private String firstName;
 
     @Field("last_name")
     @JsonProperty("lastname")
+    @org.springframework.data.elasticsearch.annotations.Field(fielddata = true, type = FieldType.Text)
     private String lastName;
 
     @Field("company_name")
@@ -47,15 +57,13 @@ public class People implements Serializable {
     private String companyName;
 
     @Field("entry_date")
-    @JsonFormat(pattern = "dd/MM/yyyy")
-    @JsonDeserialize(using = LocalDateDeserializer.class)
-    @JsonSerialize(using = LocalDateSerializer.class)
+    @JsonDeserialize(using = CustomDateTimeDeserializer.class)
+    @JsonSerialize(using = CustomDateTimeSerializer.class)
     private LocalDate entryDate;
 
     @Field("birth_date")
-    @JsonFormat(pattern = "dd/MM/yyyy")
-    @JsonDeserialize(using = LocalDateDeserializer.class)
-    @JsonSerialize(using = LocalDateSerializer.class)
+    @JsonDeserialize(using = CustomDateTimeDeserializer.class)
+    @JsonSerialize(using = CustomDateTimeSerializer.class)
     private LocalDate birthDate;
 
     @Field("gender")
@@ -69,6 +77,7 @@ public class People implements Serializable {
     private String phoneNumber;
 
     @Field("is_manager")
+    @org.springframework.data.elasticsearch.annotations.Field(type = FieldType.Boolean)
     private Boolean isManager;
 
     @Field("manager")

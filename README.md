@@ -1,6 +1,14 @@
-# jhipsterReactSchool
+# jhipsterSfeirSchool
 
-This application was generated using JHipster 5.8.2, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v5.8.2](https://www.jhipster.tech/documentation-archive/v5.8.2).
+Jhipster project to handle backend for sfeir schools.
+
+Features :
+
+People entity api
+Elasticsearch api
+Elastic refresh api ( force refresh of index)
+
+Elastic needs to be started from the docker script (elastic doesn't support the embedded version) ==> docker-compose -f src/main/docker/elasticsearch.yml up -d
 
 ## Development
 

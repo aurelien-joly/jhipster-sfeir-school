@@ -2,9 +2,8 @@ package com.sfeir.school;
 
 import com.sfeir.school.config.ApplicationProperties;
 import com.sfeir.school.config.DefaultProfileUtil;
-
+import com.sfeir.school.service.ElasticsearchIndexService;
 import io.github.jhipster.config.JHipsterConstants;
-
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,6 +11,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.Environment;
 
 import javax.annotation.PostConstruct;
@@ -23,13 +23,13 @@ import java.util.Collection;
 @SpringBootApplication
 @EnableConfigurationProperties({ApplicationProperties.class})
 @EnableDiscoveryClient
-public class JhipsterReactSchoolApp {
+public class JhipsterSfeirSchoolApp {
 
-    private static final Logger log = LoggerFactory.getLogger(JhipsterReactSchoolApp.class);
+    private static final Logger log = LoggerFactory.getLogger(JhipsterSfeirSchoolApp.class);
 
     private final Environment env;
 
-    public JhipsterReactSchoolApp(Environment env) {
+    public JhipsterSfeirSchoolApp(Environment env) {
         this.env = env;
     }
 
@@ -59,10 +59,14 @@ public class JhipsterReactSchoolApp {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        SpringApplication app = new SpringApplication(JhipsterReactSchoolApp.class);
+        SpringApplication app = new SpringApplication(JhipsterSfeirSchoolApp.class);
         DefaultProfileUtil.addDefaultProfile(app);
-        Environment env = app.run(args).getEnvironment();
+        ConfigurableApplicationContext configurableApplicationContext = app.run(args);
+        Environment env = configurableApplicationContext.getEnvironment();
+        //force reload of elastick index, mongobee executes migration after the index initial refresh
+        ((ElasticsearchIndexService) configurableApplicationContext.getBean("elasticsearchIndexService")).reindexAll();
         logApplicationStartup(env);
+
     }
 
     private static void logApplicationStartup(Environment env) {

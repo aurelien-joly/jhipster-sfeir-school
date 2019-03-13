@@ -1,13 +1,12 @@
 package com.sfeir.school.service;
 
-import com.sfeir.school.JhipsterReactSchoolApp;
+import com.sfeir.school.JhipsterSfeirSchoolApp;
 import com.sfeir.school.config.Constants;
 import com.sfeir.school.domain.User;
-import com.sfeir.school.repository.search.UserSearchRepository;
 import com.sfeir.school.repository.UserRepository;
+import com.sfeir.school.repository.search.UserSearchRepository;
 import com.sfeir.school.service.dto.UserDTO;
 import com.sfeir.school.service.util.RandomUtil;
-
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Before;
 import org.junit.Test;
@@ -33,7 +32,7 @@ import static org.mockito.Mockito.verify;
  * @see UserService
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = JhipsterReactSchoolApp.class)
+@SpringBootTest(classes = JhipsterSfeirSchoolApp.class)
 public class UserServiceIntTest {
 
     @Autowired

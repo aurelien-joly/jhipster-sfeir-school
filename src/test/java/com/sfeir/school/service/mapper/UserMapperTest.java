@@ -1,7 +1,7 @@
 package com.sfeir.school.service.mapper;
 
 
-import com.sfeir.school.JhipsterReactSchoolApp;
+import com.sfeir.school.JhipsterSfeirSchoolApp;
 import com.sfeir.school.domain.User;
 import com.sfeir.school.service.dto.UserDTO;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -25,7 +25,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * @see UserMapper
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = JhipsterReactSchoolApp.class)
+@SpringBootTest(classes = JhipsterSfeirSchoolApp.class)
 public class UserMapperTest {
 
     private static final String DEFAULT_LOGIN = "johndoe";

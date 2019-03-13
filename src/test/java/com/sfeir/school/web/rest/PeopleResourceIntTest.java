@@ -1,13 +1,11 @@
 package com.sfeir.school.web.rest;
 
-import com.sfeir.school.JhipsterReactSchoolApp;
-
+import com.sfeir.school.JhipsterSfeirSchoolApp;
 import com.sfeir.school.domain.People;
 import com.sfeir.school.repository.PeopleRepository;
 import com.sfeir.school.repository.search.PeopleSearchRepository;
 import com.sfeir.school.service.PeopleService;
 import com.sfeir.school.web.rest.errors.ExceptionTranslator;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,7 +27,6 @@ import java.time.ZoneId;
 import java.util.Collections;
 import java.util.List;
 
-
 import static com.sfeir.school.web.rest.TestUtil.createFormattingConversionService;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.elasticsearch.index.query.QueryBuilders.queryStringQuery;
@@ -44,7 +41,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * @see PeopleResource
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = JhipsterReactSchoolApp.class)
+@SpringBootTest(classes = JhipsterSfeirSchoolApp.class)
 public class PeopleResourceIntTest {
 
     private static final String DEFAULT_PHOTO = "AAAAAAAAAA";
@@ -216,18 +213,18 @@ public class PeopleResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(people.getId())))
-            .andExpect(jsonPath("$.[*].photo").value(hasItem(DEFAULT_PHOTO.toString())))
-            .andExpect(jsonPath("$.[*].firstName").value(hasItem(DEFAULT_FIRST_NAME.toString())))
-            .andExpect(jsonPath("$.[*].lastName").value(hasItem(DEFAULT_LAST_NAME.toString())))
-            .andExpect(jsonPath("$.[*].companyName").value(hasItem(DEFAULT_COMPANY_NAME.toString())))
+            .andExpect(jsonPath("$.[*].photo").value(hasItem(DEFAULT_PHOTO)))
+            .andExpect(jsonPath("$.[*].firstName").value(hasItem(DEFAULT_FIRST_NAME)))
+            .andExpect(jsonPath("$.[*].lastName").value(hasItem(DEFAULT_LAST_NAME)))
+            .andExpect(jsonPath("$.[*].companyName").value(hasItem(DEFAULT_COMPANY_NAME)))
             .andExpect(jsonPath("$.[*].entryDate").value(hasItem(DEFAULT_ENTRY_DATE.toString())))
             .andExpect(jsonPath("$.[*].birthDate").value(hasItem(DEFAULT_BIRTH_DATE.toString())))
-            .andExpect(jsonPath("$.[*].gender").value(hasItem(DEFAULT_GENDER.toString())))
-            .andExpect(jsonPath("$.[*].email").value(hasItem(DEFAULT_EMAIL.toString())))
-            .andExpect(jsonPath("$.[*].phoneNumber").value(hasItem(DEFAULT_PHONE_NUMBER.toString())))
+            .andExpect(jsonPath("$.[*].gender").value(hasItem(DEFAULT_GENDER)))
+            .andExpect(jsonPath("$.[*].email").value(hasItem(DEFAULT_EMAIL)))
+            .andExpect(jsonPath("$.[*].phoneNumber").value(hasItem(DEFAULT_PHONE_NUMBER)))
             .andExpect(jsonPath("$.[*].isManager").value(hasItem(DEFAULT_IS_MANAGER.booleanValue())))
-            .andExpect(jsonPath("$.[*].manager").value(hasItem(DEFAULT_MANAGER.toString())))
-            .andExpect(jsonPath("$.[*].managerId").value(hasItem(DEFAULT_MANAGER_ID.toString())));
+            .andExpect(jsonPath("$.[*].manager").value(hasItem(DEFAULT_MANAGER)))
+            .andExpect(jsonPath("$.[*].managerId").value(hasItem(DEFAULT_MANAGER_ID)));
     }
     
     @Test
@@ -240,18 +237,18 @@ public class PeopleResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(people.getId()))
-            .andExpect(jsonPath("$.photo").value(DEFAULT_PHOTO.toString()))
-            .andExpect(jsonPath("$.firstName").value(DEFAULT_FIRST_NAME.toString()))
-            .andExpect(jsonPath("$.lastName").value(DEFAULT_LAST_NAME.toString()))
-            .andExpect(jsonPath("$.companyName").value(DEFAULT_COMPANY_NAME.toString()))
+            .andExpect(jsonPath("$.photo").value(DEFAULT_PHOTO))
+            .andExpect(jsonPath("$.firstName").value(DEFAULT_FIRST_NAME))
+            .andExpect(jsonPath("$.lastName").value(DEFAULT_LAST_NAME))
+            .andExpect(jsonPath("$.companyName").value(DEFAULT_COMPANY_NAME))
             .andExpect(jsonPath("$.entryDate").value(DEFAULT_ENTRY_DATE.toString()))
             .andExpect(jsonPath("$.birthDate").value(DEFAULT_BIRTH_DATE.toString()))
-            .andExpect(jsonPath("$.gender").value(DEFAULT_GENDER.toString()))
-            .andExpect(jsonPath("$.email").value(DEFAULT_EMAIL.toString()))
-            .andExpect(jsonPath("$.phoneNumber").value(DEFAULT_PHONE_NUMBER.toString()))
+            .andExpect(jsonPath("$.gender").value(DEFAULT_GENDER))
+            .andExpect(jsonPath("$.email").value(DEFAULT_EMAIL))
+            .andExpect(jsonPath("$.phoneNumber").value(DEFAULT_PHONE_NUMBER))
             .andExpect(jsonPath("$.isManager").value(DEFAULT_IS_MANAGER.booleanValue()))
-            .andExpect(jsonPath("$.manager").value(DEFAULT_MANAGER.toString()))
-            .andExpect(jsonPath("$.managerId").value(DEFAULT_MANAGER_ID.toString()));
+            .andExpect(jsonPath("$.manager").value(DEFAULT_MANAGER))
+            .andExpect(jsonPath("$.managerId").value(DEFAULT_MANAGER_ID));
     }
 
     @Test

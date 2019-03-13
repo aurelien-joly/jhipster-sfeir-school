@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link, RouteComponentProps } from 'react-router-dom';
-import { Button, Row, Col, Label } from 'reactstrap';
+import { Button, Row, Col, Label, Media } from 'reactstrap';
 import { AvForm, AvGroup, AvInput, AvField } from 'availity-reactstrap-validation';
 // tslint:disable-next-line:no-unused-variable
 import { Translate, translate, ICrudGetAction, ICrudGetAllAction, ICrudPutAction } from 'react-jhipster';
@@ -99,19 +99,19 @@ export class PeopleUpdate extends React.Component<IPeopleUpdateProps, IPeopleUpd
                   <Label id="firstNameLabel" for="firstName">
                     <Translate contentKey="jhipsterReactSchoolApp.people.firstName">First Name</Translate>
                   </Label>
-                  <AvField id="people-firstName" type="text" name="firstName" />
+                  <AvField id="people-firstname" type="text" name="firstname" />
                 </AvGroup>
                 <AvGroup>
                   <Label id="lastNameLabel" for="lastName">
                     <Translate contentKey="jhipsterReactSchoolApp.people.lastName">Last Name</Translate>
                   </Label>
-                  <AvField id="people-lastName" type="text" name="lastName" />
+                  <AvField id="people-lastname" type="text" name="lastname" />
                 </AvGroup>
                 <AvGroup>
                   <Label id="companyNameLabel" for="companyName">
                     <Translate contentKey="jhipsterReactSchoolApp.people.companyName">Company Name</Translate>
                   </Label>
-                  <AvField id="people-companyName" type="text" name="companyName" />
+                  <AvField id="people-entity" type="text" name="entity" />
                 </AvGroup>
                 <AvGroup>
                   <Label id="entryDateLabel" for="entryDate">
@@ -141,7 +141,7 @@ export class PeopleUpdate extends React.Component<IPeopleUpdateProps, IPeopleUpd
                   <Label id="phoneNumberLabel" for="phoneNumber">
                     <Translate contentKey="jhipsterReactSchoolApp.people.phoneNumber">Phone Number</Translate>
                   </Label>
-                  <AvField id="people-phoneNumber" type="text" name="phoneNumber" />
+                  <AvField id="people-phone" type="text" name="phone" />
                 </AvGroup>
                 <AvGroup>
                   <Label id="isManagerLabel" check>

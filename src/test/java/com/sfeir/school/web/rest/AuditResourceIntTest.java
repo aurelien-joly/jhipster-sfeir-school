@@ -1,6 +1,6 @@
 package com.sfeir.school.web.rest;
 
-import com.sfeir.school.JhipsterReactSchoolApp;
+import com.sfeir.school.JhipsterSfeirSchoolApp;
 import com.sfeir.school.config.audit.AuditEventConverter;
 import com.sfeir.school.domain.PersistentAuditEvent;
 import com.sfeir.school.repository.PersistenceAuditEventRepository;
@@ -32,7 +32,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * @see AuditResource
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = JhipsterReactSchoolApp.class)
+@SpringBootTest(classes = JhipsterSfeirSchoolApp.class)
 public class AuditResourceIntTest {
 
     private static final String SAMPLE_PRINCIPAL = "SAMPLE_PRINCIPAL";

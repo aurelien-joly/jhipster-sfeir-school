@@ -1,6 +1,6 @@
 package com.sfeir.school.repository;
 
-import com.sfeir.school.JhipsterReactSchoolApp;
+import com.sfeir.school.JhipsterSfeirSchoolApp;
 import com.sfeir.school.config.Constants;
 import com.sfeir.school.config.audit.AuditEventConverter;
 import com.sfeir.school.domain.PersistentAuditEvent;
@@ -21,8 +21,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static com.sfeir.school.repository.CustomAuditEventRepository.EVENT_DATA_COLUMN_MAX_LENGTH;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Test class for the CustomAuditEventRepository class.
@@ -30,7 +30,7 @@ import static com.sfeir.school.repository.CustomAuditEventRepository.EVENT_DATA_
  * @see CustomAuditEventRepository
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = JhipsterReactSchoolApp.class)
+@SpringBootTest(classes = JhipsterSfeirSchoolApp.class)
 public class CustomAuditEventRepositoryIntTest {
 
     @Autowired

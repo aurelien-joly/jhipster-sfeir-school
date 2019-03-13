@@ -1,9 +1,9 @@
 package com.sfeir.school.web.rest;
 
-import com.sfeir.school.JhipsterReactSchoolApp;
-import com.sfeir.school.web.rest.vm.LoggerVM;
 import ch.qos.logback.classic.AsyncAppender;
 import ch.qos.logback.classic.LoggerContext;
+import com.sfeir.school.JhipsterSfeirSchoolApp;
+import com.sfeir.school.web.rest.vm.LoggerVM;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,7 +26,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * @see LogsResource
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = JhipsterReactSchoolApp.class)
+@SpringBootTest(classes = JhipsterSfeirSchoolApp.class)
 public class LogsResourceIntTest {
 
     private MockMvc restLogsMockMvc;

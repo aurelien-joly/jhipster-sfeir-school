@@ -1,9 +1,8 @@
 package com.sfeir.school.security;
 
-import com.sfeir.school.JhipsterReactSchoolApp;
+import com.sfeir.school.JhipsterSfeirSchoolApp;
 import com.sfeir.school.domain.User;
 import com.sfeir.school.repository.UserRepository;
-
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Before;
 import org.junit.Test;
@@ -24,7 +23,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * @see DomainUserDetailsService
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = JhipsterReactSchoolApp.class)
+@SpringBootTest(classes = JhipsterSfeirSchoolApp.class)
 public class DomainUserDetailsServiceIntTest {
 
     private static final String USER_ONE_LOGIN = "test-user-one";

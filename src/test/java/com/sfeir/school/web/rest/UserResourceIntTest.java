@@ -1,6 +1,6 @@
 package com.sfeir.school.web.rest;
 
-import com.sfeir.school.JhipsterReactSchoolApp;
+import com.sfeir.school.JhipsterSfeirSchoolApp;
 import com.sfeir.school.domain.Authority;
 import com.sfeir.school.domain.User;
 import com.sfeir.school.repository.UserRepository;
@@ -27,11 +27,14 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.time.Instant;
-import java.util.*;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.Matchers.hasItems;
 import static org.hamcrest.Matchers.hasItem;
+import static org.hamcrest.Matchers.hasItems;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -41,7 +44,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * @see UserResource
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = JhipsterReactSchoolApp.class)
+@SpringBootTest(classes = JhipsterSfeirSchoolApp.class)
 public class UserResourceIntTest {
 
     private static final String DEFAULT_LOGIN = "johndoe";

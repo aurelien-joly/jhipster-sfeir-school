@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link, RouteComponentProps } from 'react-router-dom';
-import { Button, Row, Col } from 'reactstrap';
+import { Button, Row, Col, Media } from 'reactstrap';
 // tslint:disable-next-line:no-unused-variable
 import { Translate, ICrudGetAction, TextFormat } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -33,22 +33,24 @@ export class PeopleDetail extends React.Component<IPeopleDetailProps> {
                 <Translate contentKey="jhipsterReactSchoolApp.people.photo">Photo</Translate>
               </span>
             </dt>
-            <dd>{peopleEntity.photo}</dd>
+            <dd>
+              <Media object src={peopleEntity.photo} alt="Generic placeholder image" />
+            </dd>
             <dt>
               <span id="firstName">
-                <Translate contentKey="jhipsterReactSchoolApp.people.firstname">First Name</Translate>
+                <Translate contentKey="jhipsterReactSchoolApp.people.firstName">First Name</Translate>
               </span>
             </dt>
             <dd>{peopleEntity.firstname}</dd>
             <dt>
               <span id="lastName">
-                <Translate contentKey="jhipsterReactSchoolApp.people.lastname">Last Name</Translate>
+                <Translate contentKey="jhipsterReactSchoolApp.people.lastName">Last Name</Translate>
               </span>
             </dt>
             <dd>{peopleEntity.lastname}</dd>
             <dt>
               <span id="companyName">
-                <Translate contentKey="jhipsterReactSchoolApp.people.entity">Company Name</Translate>
+                <Translate contentKey="jhipsterReactSchoolApp.people.companyName">Company Name</Translate>
               </span>
             </dt>
             <dd>{peopleEntity.entity}</dd>
@@ -82,7 +84,7 @@ export class PeopleDetail extends React.Component<IPeopleDetailProps> {
             <dd>{peopleEntity.email}</dd>
             <dt>
               <span id="phoneNumber">
-                <Translate contentKey="jhipsterReactSchoolApp.people.phone">Phone Number</Translate>
+                <Translate contentKey="jhipsterReactSchoolApp.people.phoneNumber">Phone Number</Translate>
               </span>
             </dt>
             <dd>{peopleEntity.phone}</dd>

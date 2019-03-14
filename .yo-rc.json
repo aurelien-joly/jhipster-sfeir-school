@@ -6,7 +6,7 @@
     },
     "jhipsterVersion": "5.8.2",
     "applicationType": "monolith",
-    "baseName": "jhipsterReactSchool",
+    "baseName": "jhipsterSfeirSchool",
     "packageName": "com.sfeir.school",
     "packageFolder": "com/sfeir/school",
     "serverPort": "8080",
@@ -33,6 +33,16 @@
     "otherModules": [],
     "enableTranslation": true,
     "nativeLanguage": "en",
-    "languages": ["en", "fr"]
+    "languages": ["en", "fr"],
+    "appsFolders": ["jhipster-sfeir-school"],
+    "directoryPath": "../",
+    "clusteredDbApps": [],
+    "dockerRepositoryName": "captaincrunch59",
+    "dockerPushCommand": "docker push",
+    "kubernetesNamespace": "default",
+    "kubernetesServiceType": "LoadBalancer",
+    "monitoring": "elk",
+    "istio": "no",
+    "istioRoute": false
   }
 }

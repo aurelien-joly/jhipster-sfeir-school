@@ -33,8 +33,8 @@ export class PeopleDeleteDialog extends React.Component<IPeopleDeleteDialogProps
         <ModalHeader toggle={this.handleClose}>
           <Translate contentKey="entity.delete.title">Confirm delete operation</Translate>
         </ModalHeader>
-        <ModalBody id="jhipsterReactSchoolApp.people.delete.question">
-          <Translate contentKey="jhipsterReactSchoolApp.people.delete.question" interpolate={{ id: peopleEntity.id }}>
+        <ModalBody id="jhipsterSfeirSchoolApp.people.delete.question">
+          <Translate contentKey="jhipsterSfeirSchoolApp.people.delete.question" interpolate={{ id: peopleEntity.id }}>
             Are you sure you want to delete this People?
           </Translate>
         </ModalBody>

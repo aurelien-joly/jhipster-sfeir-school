@@ -1,13 +1,7 @@
 package com.sfeir.school.config;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.DeserializationContext;
-import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 
 import java.io.IOException;
@@ -18,12 +12,11 @@ import java.util.Arrays;
 import java.util.List;
 
 import static java.time.format.DateTimeFormatter.*;
-import static java.time.format.DateTimeFormatter.ISO_LOCAL_DATE;
 import static java.time.temporal.ChronoField.*;
 
 public class CustomDateTimeSerializer extends LocalDateSerializer {
 
-    private static final DateTimeFormatter DEFAULT_FORMATTER  = new DateTimeFormatterBuilder()
+    public static final DateTimeFormatter DEFAULT_FORMATTER = new DateTimeFormatterBuilder()
         .appendValue(DAY_OF_MONTH, 2)
         .appendLiteral('/')
         .appendValue(MONTH_OF_YEAR, 2)

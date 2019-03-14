@@ -1,16 +1,16 @@
 version: '2'
 services:
-    jhipsterreactschool-mongodb:
+    jhipstersfeirschool-mongodb:
         image: mongo:4.0.2
         ports:
             - "27017:27017"
-        command: mongos --configdb jhipsterreactschool-mongodb-config
-    jhipsterreactschool-mongodb-node:
+        command: mongos --configdb jhipstersfeirschool-mongodb-config
+    jhipstersfeirschool-mongodb-node:
         build:
             context: .
             dockerfile: mongodb/MongoDB.Dockerfile
         command: mongod --replSet rs1 --noprealloc --smallfiles
-    jhipsterreactschool-mongodb-config:
+    jhipstersfeirschool-mongodb-config:
         image: mongo:4.0.2
-        container_name: jhipsterreactschool-mongodb-config
+        container_name: jhipstersfeirschool-mongodb-config
         command: mongod --noprealloc --smallfiles --configsvr --dbpath /data/db

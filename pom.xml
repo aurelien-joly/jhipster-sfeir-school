@@ -4,7 +4,7 @@
 
     <groupId>com.sfeir.school</groupId>
     <artifactId>jhipster-sfeir-school</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>war</packaging>
     <name>Jhipster Sfeir School</name>
 
@@ -157,6 +157,7 @@
         <dependency>
             <groupId>de.flapdoodle.embed</groupId>
             <artifactId>de.flapdoodle.embed.mongo</artifactId>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>javax.cache</groupId>
@@ -468,7 +469,7 @@
                           <image>openjdk:8-jre-alpine</image>
                       </from>
                       <to>
-                          <image>jhipsterreactschool:latest</image>
+                          <image>jhipstersfeirschool:latest</image>
                       </to>
                       <container>
                           <entrypoint>

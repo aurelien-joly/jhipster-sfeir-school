@@ -108,9 +108,6 @@
     "write-file-webpack-plugin": "4.3.2",
     "xml2js": "0.4.19"
   },
-  "resolutions": {
-    "@types/react": "16.4.12"
-  },
   "engines": {
     "node": ">=8.9.0"
   },
@@ -127,7 +124,7 @@
     "cleanup": "rimraf target/www",
     "start": "npm run webpack:dev",
     "start-tls": "npm run webpack:dev -- --env.tls",
-    "jest": "jest --coverage --logHeapUsage --maxWorkers=2 --config src/test/javascript/jest.conf.js",
+    "jest": "jest --coverage --logHeapUsage --maxWorkers=2 --config src/test/javascript/jest.conf.js --passWithNoTests",
     "jest:update": "npm run jest -- --updateSnapshot",
     "test": "npm run lint && npm run jest",
     "test-ci": "npm run lint && npm run jest:update",

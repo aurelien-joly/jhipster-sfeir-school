@@ -70,8 +70,8 @@ export class PeopleUpdate extends React.Component<IPeopleUpdateProps, IPeopleUpd
       <div>
         <Row className="justify-content-center">
           <Col md="8">
-            <h2 id="jhipsterReactSchoolApp.people.home.createOrEditLabel">
-              <Translate contentKey="jhipsterReactSchoolApp.people.home.createOrEditLabel">Create or edit a People</Translate>
+            <h2 id="jhipsterSfeirSchoolApp.people.home.createOrEditLabel">
+              <Translate contentKey="jhipsterSfeirSchoolApp.people.home.createOrEditLabel">Create or edit a People</Translate>
             </h2>
           </Col>
         </Row>
@@ -91,73 +91,73 @@ export class PeopleUpdate extends React.Component<IPeopleUpdateProps, IPeopleUpd
                 ) : null}
                 <AvGroup>
                   <Label id="photoLabel" for="photo">
-                    <Translate contentKey="jhipsterReactSchoolApp.people.photo">Photo</Translate>
+                    <Translate contentKey="jhipsterSfeirSchoolApp.people.photo">Photo</Translate>
                   </Label>
                   <AvField id="people-photo" type="text" name="photo" />
                 </AvGroup>
                 <AvGroup>
                   <Label id="firstNameLabel" for="firstName">
-                    <Translate contentKey="jhipsterReactSchoolApp.people.firstName">First Name</Translate>
+                    <Translate contentKey="jhipsterSfeirSchoolApp.people.firstName">First Name</Translate>
                   </Label>
                   <AvField id="people-firstname" type="text" name="firstname" />
                 </AvGroup>
                 <AvGroup>
                   <Label id="lastNameLabel" for="lastName">
-                    <Translate contentKey="jhipsterReactSchoolApp.people.lastName">Last Name</Translate>
+                    <Translate contentKey="jhipsterSfeirSchoolApp.people.lastName">Last Name</Translate>
                   </Label>
                   <AvField id="people-lastname" type="text" name="lastname" />
                 </AvGroup>
                 <AvGroup>
                   <Label id="companyNameLabel" for="companyName">
-                    <Translate contentKey="jhipsterReactSchoolApp.people.companyName">Company Name</Translate>
+                    <Translate contentKey="jhipsterSfeirSchoolApp.people.companyName">Company Name</Translate>
                   </Label>
                   <AvField id="people-entity" type="text" name="entity" />
                 </AvGroup>
                 <AvGroup>
                   <Label id="entryDateLabel" for="entryDate">
-                    <Translate contentKey="jhipsterReactSchoolApp.people.entryDate">Entry Date</Translate>
+                    <Translate contentKey="jhipsterSfeirSchoolApp.people.entryDate">Entry Date</Translate>
                   </Label>
                   <AvField id="people-entryDate" type="date" className="form-control" name="entryDate" />
                 </AvGroup>
                 <AvGroup>
                   <Label id="birthDateLabel" for="birthDate">
-                    <Translate contentKey="jhipsterReactSchoolApp.people.birthDate">Birth Date</Translate>
+                    <Translate contentKey="jhipsterSfeirSchoolApp.people.birthDate">Birth Date</Translate>
                   </Label>
                   <AvField id="people-birthDate" type="date" className="form-control" name="birthDate" />
                 </AvGroup>
                 <AvGroup>
                   <Label id="genderLabel" for="gender">
-                    <Translate contentKey="jhipsterReactSchoolApp.people.gender">Gender</Translate>
+                    <Translate contentKey="jhipsterSfeirSchoolApp.people.gender">Gender</Translate>
                   </Label>
                   <AvField id="people-gender" type="text" name="gender" />
                 </AvGroup>
                 <AvGroup>
                   <Label id="emailLabel" for="email">
-                    <Translate contentKey="jhipsterReactSchoolApp.people.email">Email</Translate>
+                    <Translate contentKey="jhipsterSfeirSchoolApp.people.email">Email</Translate>
                   </Label>
                   <AvField id="people-email" type="text" name="email" />
                 </AvGroup>
                 <AvGroup>
                   <Label id="phoneNumberLabel" for="phoneNumber">
-                    <Translate contentKey="jhipsterReactSchoolApp.people.phoneNumber">Phone Number</Translate>
+                    <Translate contentKey="jhipsterSfeirSchoolApp.people.phoneNumber">Phone Number</Translate>
                   </Label>
                   <AvField id="people-phone" type="text" name="phone" />
                 </AvGroup>
                 <AvGroup>
                   <Label id="isManagerLabel" check>
                     <AvInput id="people-isManager" type="checkbox" className="form-control" name="isManager" />
-                    <Translate contentKey="jhipsterReactSchoolApp.people.isManager">Is Manager</Translate>
+                    <Translate contentKey="jhipsterSfeirSchoolApp.people.isManager">Is Manager</Translate>
                   </Label>
                 </AvGroup>
                 <AvGroup>
                   <Label id="managerLabel" for="manager">
-                    <Translate contentKey="jhipsterReactSchoolApp.people.manager">Manager</Translate>
+                    <Translate contentKey="jhipsterSfeirSchoolApp.people.manager">Manager</Translate>
                   </Label>
                   <AvField id="people-manager" type="text" name="manager" />
                 </AvGroup>
                 <AvGroup>
                   <Label id="managerIdLabel" for="managerId">
-                    <Translate contentKey="jhipsterReactSchoolApp.people.managerId">Manager Id</Translate>
+                    <Translate contentKey="jhipsterSfeirSchoolApp.people.managerId">Manager Id</Translate>
                   </Label>
                   <AvField id="people-managerId" type="text" name="managerId" />
                 </AvGroup>

@@ -25,12 +25,12 @@ export class PeopleDetail extends React.Component<IPeopleDetailProps> {
       <Row>
         <Col md="8">
           <h2>
-            <Translate contentKey="jhipsterReactSchoolApp.people.detail.title">People</Translate> [<b>{peopleEntity.id}</b>]
+            <Translate contentKey="jhipsterSfeirSchoolApp.people.detail.title">People</Translate> [<b>{peopleEntity.id}</b>]
           </h2>
           <dl className="jh-entity-details">
             <dt>
               <span id="photo">
-                <Translate contentKey="jhipsterReactSchoolApp.people.photo">Photo</Translate>
+                <Translate contentKey="jhipsterSfeirSchoolApp.people.photo">Photo</Translate>
               </span>
             </dt>
             <dd>
@@ -38,25 +38,25 @@ export class PeopleDetail extends React.Component<IPeopleDetailProps> {
             </dd>
             <dt>
               <span id="firstName">
-                <Translate contentKey="jhipsterReactSchoolApp.people.firstName">First Name</Translate>
+                <Translate contentKey="jhipsterSfeirSchoolApp.people.firstName">First Name</Translate>
               </span>
             </dt>
             <dd>{peopleEntity.firstname}</dd>
             <dt>
               <span id="lastName">
-                <Translate contentKey="jhipsterReactSchoolApp.people.lastName">Last Name</Translate>
+                <Translate contentKey="jhipsterSfeirSchoolApp.people.lastName">Last Name</Translate>
               </span>
             </dt>
             <dd>{peopleEntity.lastname}</dd>
             <dt>
               <span id="companyName">
-                <Translate contentKey="jhipsterReactSchoolApp.people.companyName">Company Name</Translate>
+                <Translate contentKey="jhipsterSfeirSchoolApp.people.companyName">Company Name</Translate>
               </span>
             </dt>
             <dd>{peopleEntity.entity}</dd>
             <dt>
               <span id="entryDate">
-                <Translate contentKey="jhipsterReactSchoolApp.people.entryDate">Entry Date</Translate>
+                <Translate contentKey="jhipsterSfeirSchoolApp.people.entryDate">Entry Date</Translate>
               </span>
             </dt>
             <dd>
@@ -64,7 +64,7 @@ export class PeopleDetail extends React.Component<IPeopleDetailProps> {
             </dd>
             <dt>
               <span id="birthDate">
-                <Translate contentKey="jhipsterReactSchoolApp.people.birthDate">Birth Date</Translate>
+                <Translate contentKey="jhipsterSfeirSchoolApp.people.birthDate">Birth Date</Translate>
               </span>
             </dt>
             <dd>
@@ -72,37 +72,37 @@ export class PeopleDetail extends React.Component<IPeopleDetailProps> {
             </dd>
             <dt>
               <span id="gender">
-                <Translate contentKey="jhipsterReactSchoolApp.people.gender">Gender</Translate>
+                <Translate contentKey="jhipsterSfeirSchoolApp.people.gender">Gender</Translate>
               </span>
             </dt>
             <dd>{peopleEntity.gender}</dd>
             <dt>
               <span id="email">
-                <Translate contentKey="jhipsterReactSchoolApp.people.email">Email</Translate>
+                <Translate contentKey="jhipsterSfeirSchoolApp.people.email">Email</Translate>
               </span>
             </dt>
             <dd>{peopleEntity.email}</dd>
             <dt>
               <span id="phoneNumber">
-                <Translate contentKey="jhipsterReactSchoolApp.people.phoneNumber">Phone Number</Translate>
+                <Translate contentKey="jhipsterSfeirSchoolApp.people.phoneNumber">Phone Number</Translate>
               </span>
             </dt>
             <dd>{peopleEntity.phone}</dd>
             <dt>
               <span id="isManager">
-                <Translate contentKey="jhipsterReactSchoolApp.people.isManager">Is Manager</Translate>
+                <Translate contentKey="jhipsterSfeirSchoolApp.people.isManager">Is Manager</Translate>
               </span>
             </dt>
             <dd>{peopleEntity.isManager ? 'true' : 'false'}</dd>
             <dt>
               <span id="manager">
-                <Translate contentKey="jhipsterReactSchoolApp.people.manager">Manager</Translate>
+                <Translate contentKey="jhipsterSfeirSchoolApp.people.manager">Manager</Translate>
               </span>
             </dt>
             <dd>{peopleEntity.manager}</dd>
             <dt>
               <span id="managerId">
-                <Translate contentKey="jhipsterReactSchoolApp.people.managerId">Manager Id</Translate>
+                <Translate contentKey="jhipsterSfeirSchoolApp.people.managerId">Manager Id</Translate>
               </span>
             </dt>
             <dd>{peopleEntity.managerId}</dd>

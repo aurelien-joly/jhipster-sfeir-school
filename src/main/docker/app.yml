@@ -1,26 +1,26 @@
 version: '2'
 services:
-    jhipsterreactschool-app:
-        image: jhipsterreactschool
+    jhipstersfeirschool-app:
+        image: jhipstersfeirschool
         environment:
             - _JAVA_OPTIONS=-Xmx512m -Xms256m
             - SPRING_PROFILES_ACTIVE=prod,swagger
             - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/eureka
             - SPRING_CLOUD_CONFIG_URI=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/config
-            - SPRING_DATA_MONGODB_URI=mongodb://jhipsterreactschool-mongodb:27017
-            - SPRING_DATA_MONGODB_DATABASE=jhipsterReactSchool
+            - SPRING_DATA_MONGODB_URI=mongodb://jhipstersfeirschool-mongodb:27017
+            - SPRING_DATA_MONGODB_DATABASE=jhipsterSfeirSchool
             - JHIPSTER_SLEEP=30 # gives time for the JHipster Registry to boot before the application
-            - SPRING_DATA_JEST_URI=http://jhipsterreactschool-elasticsearch:9200
+            - SPRING_DATA_JEST_URI=http://jhipstersfeirschool-elasticsearch:9200
         ports:
             - 8080:8080
-    jhipsterreactschool-mongodb:
+    jhipstersfeirschool-mongodb:
         extends:
             file: mongodb.yml
-            service: jhipsterreactschool-mongodb
-    jhipsterreactschool-elasticsearch:
+            service: jhipstersfeirschool-mongodb
+    jhipstersfeirschool-elasticsearch:
         extends:
             file: elasticsearch.yml
-            service: jhipsterreactschool-elasticsearch
+            service: jhipstersfeirschool-elasticsearch
     jhipster-registry:
         extends:
             file: jhipster-registry.yml

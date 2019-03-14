@@ -1,6 +1,7 @@
 package com.sfeir.school.web.rest;
 
 import com.sfeir.school.JhipsterSfeirSchoolApp;
+import com.sfeir.school.config.CustomDateTimeSerializer;
 import com.sfeir.school.domain.People;
 import com.sfeir.school.repository.PeopleRepository;
 import com.sfeir.school.repository.search.PeopleSearchRepository;
@@ -214,14 +215,14 @@ public class PeopleResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(people.getId())))
             .andExpect(jsonPath("$.[*].photo").value(hasItem(DEFAULT_PHOTO)))
-            .andExpect(jsonPath("$.[*].firstName").value(hasItem(DEFAULT_FIRST_NAME)))
-            .andExpect(jsonPath("$.[*].lastName").value(hasItem(DEFAULT_LAST_NAME)))
-            .andExpect(jsonPath("$.[*].companyName").value(hasItem(DEFAULT_COMPANY_NAME)))
-            .andExpect(jsonPath("$.[*].entryDate").value(hasItem(DEFAULT_ENTRY_DATE.toString())))
-            .andExpect(jsonPath("$.[*].birthDate").value(hasItem(DEFAULT_BIRTH_DATE.toString())))
+            .andExpect(jsonPath("$.[*].firstname").value(hasItem(DEFAULT_FIRST_NAME)))
+            .andExpect(jsonPath("$.[*].lastname").value(hasItem(DEFAULT_LAST_NAME)))
+            .andExpect(jsonPath("$.[*].entity").value(hasItem(DEFAULT_COMPANY_NAME)))
+            .andExpect(jsonPath("$.[*].entryDate").value(hasItem(DEFAULT_ENTRY_DATE.format(CustomDateTimeSerializer.DEFAULT_FORMATTER))))
+            .andExpect(jsonPath("$.[*].birthDate").value(hasItem(DEFAULT_BIRTH_DATE.format(CustomDateTimeSerializer.DEFAULT_FORMATTER))))
             .andExpect(jsonPath("$.[*].gender").value(hasItem(DEFAULT_GENDER)))
             .andExpect(jsonPath("$.[*].email").value(hasItem(DEFAULT_EMAIL)))
-            .andExpect(jsonPath("$.[*].phoneNumber").value(hasItem(DEFAULT_PHONE_NUMBER)))
+            .andExpect(jsonPath("$.[*].phone").value(hasItem(DEFAULT_PHONE_NUMBER)))
             .andExpect(jsonPath("$.[*].isManager").value(hasItem(DEFAULT_IS_MANAGER.booleanValue())))
             .andExpect(jsonPath("$.[*].manager").value(hasItem(DEFAULT_MANAGER)))
             .andExpect(jsonPath("$.[*].managerId").value(hasItem(DEFAULT_MANAGER_ID)));
@@ -238,14 +239,14 @@ public class PeopleResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(people.getId()))
             .andExpect(jsonPath("$.photo").value(DEFAULT_PHOTO))
-            .andExpect(jsonPath("$.firstName").value(DEFAULT_FIRST_NAME))
-            .andExpect(jsonPath("$.lastName").value(DEFAULT_LAST_NAME))
-            .andExpect(jsonPath("$.companyName").value(DEFAULT_COMPANY_NAME))
-            .andExpect(jsonPath("$.entryDate").value(DEFAULT_ENTRY_DATE.toString()))
-            .andExpect(jsonPath("$.birthDate").value(DEFAULT_BIRTH_DATE.toString()))
+            .andExpect(jsonPath("$.firstname").value(DEFAULT_FIRST_NAME))
+            .andExpect(jsonPath("$.lastname").value(DEFAULT_LAST_NAME))
+            .andExpect(jsonPath("$.entity").value(DEFAULT_COMPANY_NAME))
+            .andExpect(jsonPath("$.entryDate").value(DEFAULT_ENTRY_DATE.format(CustomDateTimeSerializer.DEFAULT_FORMATTER)))
+            .andExpect(jsonPath("$.birthDate").value(DEFAULT_BIRTH_DATE.format(CustomDateTimeSerializer.DEFAULT_FORMATTER)))
             .andExpect(jsonPath("$.gender").value(DEFAULT_GENDER))
             .andExpect(jsonPath("$.email").value(DEFAULT_EMAIL))
-            .andExpect(jsonPath("$.phoneNumber").value(DEFAULT_PHONE_NUMBER))
+            .andExpect(jsonPath("$.phone").value(DEFAULT_PHONE_NUMBER))
             .andExpect(jsonPath("$.isManager").value(DEFAULT_IS_MANAGER.booleanValue()))
             .andExpect(jsonPath("$.manager").value(DEFAULT_MANAGER))
             .andExpect(jsonPath("$.managerId").value(DEFAULT_MANAGER_ID));
@@ -361,14 +362,14 @@ public class PeopleResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(people.getId())))
             .andExpect(jsonPath("$.[*].photo").value(hasItem(DEFAULT_PHOTO)))
-            .andExpect(jsonPath("$.[*].firstName").value(hasItem(DEFAULT_FIRST_NAME)))
-            .andExpect(jsonPath("$.[*].lastName").value(hasItem(DEFAULT_LAST_NAME)))
-            .andExpect(jsonPath("$.[*].companyName").value(hasItem(DEFAULT_COMPANY_NAME)))
-            .andExpect(jsonPath("$.[*].entryDate").value(hasItem(DEFAULT_ENTRY_DATE.toString())))
-            .andExpect(jsonPath("$.[*].birthDate").value(hasItem(DEFAULT_BIRTH_DATE.toString())))
+            .andExpect(jsonPath("$.[*].firstname").value(hasItem(DEFAULT_FIRST_NAME)))
+            .andExpect(jsonPath("$.[*].lastname").value(hasItem(DEFAULT_LAST_NAME)))
+            .andExpect(jsonPath("$.[*].entity").value(hasItem(DEFAULT_COMPANY_NAME)))
+            .andExpect(jsonPath("$.[*].entryDate").value(hasItem(DEFAULT_ENTRY_DATE.format(CustomDateTimeSerializer.DEFAULT_FORMATTER))))
+            .andExpect(jsonPath("$.[*].birthDate").value(hasItem(DEFAULT_BIRTH_DATE.format(CustomDateTimeSerializer.DEFAULT_FORMATTER))))
             .andExpect(jsonPath("$.[*].gender").value(hasItem(DEFAULT_GENDER)))
             .andExpect(jsonPath("$.[*].email").value(hasItem(DEFAULT_EMAIL)))
-            .andExpect(jsonPath("$.[*].phoneNumber").value(hasItem(DEFAULT_PHONE_NUMBER)))
+            .andExpect(jsonPath("$.[*].phone").value(hasItem(DEFAULT_PHONE_NUMBER)))
             .andExpect(jsonPath("$.[*].isManager").value(hasItem(DEFAULT_IS_MANAGER.booleanValue())))
             .andExpect(jsonPath("$.[*].manager").value(hasItem(DEFAULT_MANAGER)))
             .andExpect(jsonPath("$.[*].managerId").value(hasItem(DEFAULT_MANAGER_ID)));

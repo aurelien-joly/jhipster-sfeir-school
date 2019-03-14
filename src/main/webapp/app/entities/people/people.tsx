@@ -88,11 +88,11 @@ export class People extends React.Component<IPeopleProps, IPeopleState> {
     return (
       <div>
         <h2 id="people-heading">
-          <Translate contentKey="jhipsterReactSchoolApp.people.home.title">People</Translate>
+          <Translate contentKey="jhipsterSfeirSchoolApp.people.home.title">People</Translate>
           <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
             <FontAwesomeIcon icon="plus" />
             &nbsp;
-            <Translate contentKey="jhipsterReactSchoolApp.people.home.createLabel">Create new People</Translate>
+            <Translate contentKey="jhipsterSfeirSchoolApp.people.home.createLabel">Create new People</Translate>
           </Link>
         </h2>
         <Row>
@@ -105,7 +105,7 @@ export class People extends React.Component<IPeopleProps, IPeopleState> {
                     name="search"
                     value={this.state.search}
                     onChange={this.handleSearch}
-                    placeholder={translate('jhipsterReactSchoolApp.people.home.search')}
+                    placeholder={translate('jhipsterSfeirSchoolApp.people.home.search')}
                   />
                   <Button className="input-group-addon">
                     <FontAwesomeIcon icon="search" />
@@ -126,40 +126,40 @@ export class People extends React.Component<IPeopleProps, IPeopleState> {
                   <Translate contentKey="global.field.id">ID</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('photo')}>
-                  <Translate contentKey="jhipsterReactSchoolApp.people.photo">Photo</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="jhipsterSfeirSchoolApp.people.photo">Photo</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('firstName')}>
-                  <Translate contentKey="jhipsterReactSchoolApp.people.firstName">First Name</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="jhipsterSfeirSchoolApp.people.firstName">First Name</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('lastName')}>
-                  <Translate contentKey="jhipsterReactSchoolApp.people.lastName">Last Name</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="jhipsterSfeirSchoolApp.people.lastName">Last Name</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('companyName')}>
-                  <Translate contentKey="jhipsterReactSchoolApp.people.companyName">Company Name</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="jhipsterSfeirSchoolApp.people.companyName">Company Name</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('entryDate')}>
-                  <Translate contentKey="jhipsterReactSchoolApp.people.entryDate">Entry Date</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="jhipsterSfeirSchoolApp.people.entryDate">Entry Date</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('birthDate')}>
-                  <Translate contentKey="jhipsterReactSchoolApp.people.birthDate">Birth Date</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="jhipsterSfeirSchoolApp.people.birthDate">Birth Date</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('gender')}>
-                  <Translate contentKey="jhipsterReactSchoolApp.people.gender">Gender</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="jhipsterSfeirSchoolApp.people.gender">Gender</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('email')}>
-                  <Translate contentKey="jhipsterReactSchoolApp.people.email">Email</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="jhipsterSfeirSchoolApp.people.email">Email</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('phoneNumber')}>
-                  <Translate contentKey="jhipsterReactSchoolApp.people.phoneNumber">Phone Number</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="jhipsterSfeirSchoolApp.people.phoneNumber">Phone Number</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('isManager')}>
-                  <Translate contentKey="jhipsterReactSchoolApp.people.isManager">Is Manager</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="jhipsterSfeirSchoolApp.people.isManager">Is Manager</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('manager')}>
-                  <Translate contentKey="jhipsterReactSchoolApp.people.manager">Manager</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="jhipsterSfeirSchoolApp.people.manager">Manager</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('managerId')}>
-                  <Translate contentKey="jhipsterReactSchoolApp.people.managerId">Manager Id</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="jhipsterSfeirSchoolApp.people.managerId">Manager Id</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th />
               </tr>

@@ -4,23 +4,38 @@ Jhipster project to handle backend for sfeir schools.
 
 Features :
 
-People entity api
+* People entity api
 
-Elasticsearch api
+* Elasticsearch api
 
-Elastic refresh api ( force refresh of index)
+* Elastic refresh api ( force refresh of index)
 
-Elastic and mongodb needs to be started from the docker script
+* Elastic and mongodb needs to be started from the docker script
 
 1. docker-compose -f src/main/docker/elasticsearch.yml up -d
 2. docker-compose -f src/main/docker/mongodb.yml up -d
 
-By default, the mongodb database is created with users going from user1 to user49(login=password).
-Each user owns the same set of 10 people.
+Lancer l'application (backend autoreload + frontend static) : 
 
-A user admin/admin allows access to all the feature.
+```
+mvnw
+```
+
+Lancer l'application (frontend autoreload) : 
+
+```
+npm start
+```
+
+* By default, the mongodb database is created with users going from user1 to user49(login=password).
+* User
+    * Each user owns the same set of 10 people.
+    * A user admin/admin allows access to all the feature.
+
+
 
 [Deploy to gcp using kubernetes cluster](#jhipster-generated-kubernetes-configuration)
+
 
 ## Development
 
@@ -194,7 +209,9 @@ To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`)
 
 ## Générer l'image docker
 Executer la commande
-mvnw package -Pprod jib:dockerBuild
+```
+$ mvnw package -Pprod jib:dockerBuild
+```
 
 ## Preparation
 

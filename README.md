@@ -5,10 +5,22 @@ Jhipster project to handle backend for sfeir schools.
 Features :
 
 People entity api
+
 Elasticsearch api
+
 Elastic refresh api ( force refresh of index)
 
-Elastic needs to be started from the docker script (elastic doesn't support the embedded version) ==> docker-compose -f src/main/docker/elasticsearch.yml up -d
+Elastic and mongodb needs to be started from the docker script
+
+1. docker-compose -f src/main/docker/elasticsearch.yml up -d
+2. docker-compose -f src/main/docker/mongodb.yml up -d
+
+By default, the mongodb database is created with users going from user1 to user49(login=password).
+Each user owns the same set of 10 people.
+
+A user admin/admin allows access to all the feature.
+
+[Deploy to gcp using kubernetes cluster](#jhipster-generated-kubernetes-configuration)
 
 ## Development
 

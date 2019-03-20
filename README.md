@@ -180,6 +180,10 @@ To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`)
 
 # JHipster generated kubernetes configuration
 
+## Générer l'image docker
+Executer la commande
+mvnw package -Pprod jib:dockerBuild
+
 ## Preparation
 
 You will need to push your image to a registry. If you have not done so, use the following commands to tag and push the images:

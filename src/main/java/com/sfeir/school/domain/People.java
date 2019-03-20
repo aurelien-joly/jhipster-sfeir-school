@@ -1,28 +1,20 @@
 package com.sfeir.school.domain;
 
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
-import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
-import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import com.sfeir.school.config.CustomDateTimeDeserializer;
 import com.sfeir.school.config.CustomDateTimeSerializer;
 import io.swagger.annotations.ApiModel;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.FieldType;
-import org.springframework.data.elasticsearch.annotations.Mapping;
-import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 /**
@@ -85,6 +77,10 @@ public class People implements Serializable {
 
     @Field("manager_id")
     private String managerId;
+
+    @Field("ownerId")
+    @JsonIgnore
+    private String ownerId;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public String getId() {
@@ -250,6 +246,22 @@ public class People implements Serializable {
     public void setManagerId(String managerId) {
         this.managerId = managerId;
     }
+
+    @JsonIgnore
+    public static People clonePeople(People people) {
+        People newPeople = new People();
+        newPeople.setId(people.getId());
+        newPeople.photo(people.getPhoto()).firstName(people.getFirstName()).lastName(people.getLastName()).companyName(people.getCompanyName())
+            .entryDate(people.getEntryDate()).birthDate(people.getBirthDate()).gender(people.getGender()).email(people.getEmail())
+            .phoneNumber(people.getPhoneNumber()).isManager(people.isIsManager()).manager(people.getManager()).managerId(people.getManagerId())
+            .setOwnerId(people.getOwnerId());
+        return newPeople;
+    }
+
+    public String getOwnerId() {
+        return ownerId;
+    }
+
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
@@ -272,6 +284,10 @@ public class People implements Serializable {
         return Objects.hashCode(getId());
     }
 
+    public void setOwnerId(String ownerId) {
+        this.ownerId = ownerId;
+    }
+
     @Override
     public String toString() {
         return "People{" +
@@ -288,6 +304,7 @@ public class People implements Serializable {
             ", isManager='" + isIsManager() + "'" +
             ", manager='" + getManager() + "'" +
             ", managerId='" + getManagerId() + "'" +
+            ", ownerId='" + getOwnerId() + "'" +
             "}";
     }
 }

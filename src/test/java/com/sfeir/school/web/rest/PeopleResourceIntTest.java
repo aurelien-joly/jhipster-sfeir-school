@@ -18,6 +18,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.web.PageableHandlerMethodArgumentResolver;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -43,6 +45,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = JhipsterSfeirSchoolApp.class)
+@WithMockUser(username = "admin", password = "admin", roles = "USER")
 public class PeopleResourceIntTest {
 
     private static final String DEFAULT_PHOTO = "AAAAAAAAAA";
@@ -111,18 +114,6 @@ public class PeopleResourceIntTest {
 
     private People people;
 
-    @Before
-    public void setup() {
-        MockitoAnnotations.initMocks(this);
-        final PeopleResource peopleResource = new PeopleResource(peopleService);
-        this.restPeopleMockMvc = MockMvcBuilders.standaloneSetup(peopleResource)
-            .setCustomArgumentResolvers(pageableArgumentResolver)
-            .setControllerAdvice(exceptionTranslator)
-            .setConversionService(createFormattingConversionService())
-            .setMessageConverters(jacksonMessageConverter)
-            .setValidator(validator).build();
-    }
-
     /**
      * Create an entity for this test.
      *
@@ -143,7 +134,21 @@ public class PeopleResourceIntTest {
             .isManager(DEFAULT_IS_MANAGER)
             .manager(DEFAULT_MANAGER)
             .managerId(DEFAULT_MANAGER_ID);
+        people.setOwnerId("admin");
         return people;
+    }
+
+    @Before
+    public void setup() {
+        MockitoAnnotations.initMocks(this);
+        final PeopleResource peopleResource = new PeopleResource(peopleService);
+        this.restPeopleMockMvc = MockMvcBuilders.standaloneSetup(peopleResource)
+            .setCustomArgumentResolvers(pageableArgumentResolver)
+            .setControllerAdvice(exceptionTranslator)
+            .setConversionService(createFormattingConversionService())
+            .setMessageConverters(jacksonMessageConverter)
+            .setValidator(validator)
+            .build();
     }
 
     @Before
@@ -223,7 +228,7 @@ public class PeopleResourceIntTest {
             .andExpect(jsonPath("$.[*].gender").value(hasItem(DEFAULT_GENDER)))
             .andExpect(jsonPath("$.[*].email").value(hasItem(DEFAULT_EMAIL)))
             .andExpect(jsonPath("$.[*].phone").value(hasItem(DEFAULT_PHONE_NUMBER)))
-            .andExpect(jsonPath("$.[*].isManager").value(hasItem(DEFAULT_IS_MANAGER.booleanValue())))
+            .andExpect(jsonPath("$.[*].isManager").value(hasItem(DEFAULT_IS_MANAGER)))
             .andExpect(jsonPath("$.[*].manager").value(hasItem(DEFAULT_MANAGER)))
             .andExpect(jsonPath("$.[*].managerId").value(hasItem(DEFAULT_MANAGER_ID)));
     }
@@ -247,7 +252,7 @@ public class PeopleResourceIntTest {
             .andExpect(jsonPath("$.gender").value(DEFAULT_GENDER))
             .andExpect(jsonPath("$.email").value(DEFAULT_EMAIL))
             .andExpect(jsonPath("$.phone").value(DEFAULT_PHONE_NUMBER))
-            .andExpect(jsonPath("$.isManager").value(DEFAULT_IS_MANAGER.booleanValue()))
+            .andExpect(jsonPath("$.isManager").value(DEFAULT_IS_MANAGER))
             .andExpect(jsonPath("$.manager").value(DEFAULT_MANAGER))
             .andExpect(jsonPath("$.managerId").value(DEFAULT_MANAGER_ID));
     }
@@ -262,7 +267,7 @@ public class PeopleResourceIntTest {
     @Test
     public void updatePeople() throws Exception {
         // Initialize the database
-        peopleService.save(people);
+        peopleService.save(people, SecurityContextHolder.getContext().getAuthentication().getName());
         // As the test used the service layer, reset the Elasticsearch mock repository
         reset(mockPeopleSearchRepository);
 
@@ -333,7 +338,7 @@ public class PeopleResourceIntTest {
     @Test
     public void deletePeople() throws Exception {
         // Initialize the database
-        peopleService.save(people);
+        peopleService.save(people, SecurityContextHolder.getContext().getAuthentication().getName());
 
         int databaseSizeBeforeDelete = peopleRepository.findAll().size();
 
@@ -353,7 +358,7 @@ public class PeopleResourceIntTest {
     @Test
     public void searchPeople() throws Exception {
         // Initialize the database
-        peopleService.save(people);
+        peopleService.save(people, SecurityContextHolder.getContext().getAuthentication().getName());
         when(mockPeopleSearchRepository.search(queryStringQuery("id:" + people.getId()), PageRequest.of(0, 20)))
             .thenReturn(new PageImpl<>(Collections.singletonList(people), PageRequest.of(0, 1), 1));
         // Search the people
@@ -370,7 +375,7 @@ public class PeopleResourceIntTest {
             .andExpect(jsonPath("$.[*].gender").value(hasItem(DEFAULT_GENDER)))
             .andExpect(jsonPath("$.[*].email").value(hasItem(DEFAULT_EMAIL)))
             .andExpect(jsonPath("$.[*].phone").value(hasItem(DEFAULT_PHONE_NUMBER)))
-            .andExpect(jsonPath("$.[*].isManager").value(hasItem(DEFAULT_IS_MANAGER.booleanValue())))
+            .andExpect(jsonPath("$.[*].isManager").value(hasItem(DEFAULT_IS_MANAGER)))
             .andExpect(jsonPath("$.[*].manager").value(hasItem(DEFAULT_MANAGER)))
             .andExpect(jsonPath("$.[*].managerId").value(hasItem(DEFAULT_MANAGER_ID)));
     }

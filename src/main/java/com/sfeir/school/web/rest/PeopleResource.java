@@ -1,27 +1,25 @@
 package com.sfeir.school.web.rest;
+
 import com.sfeir.school.domain.People;
 import com.sfeir.school.service.PeopleService;
 import com.sfeir.school.web.rest.errors.BadRequestAlertException;
 import com.sfeir.school.web.rest.util.HeaderUtil;
 import com.sfeir.school.web.rest.util.PaginationUtil;
 import io.github.jhipster.web.util.ResponseUtil;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.StreamSupport;
-
-import static org.elasticsearch.index.query.QueryBuilders.*;
 
 /**
  * REST controller for managing People.
@@ -53,9 +51,9 @@ public class PeopleResource {
         if (people.getId() != null) {
             throw new BadRequestAlertException("A new people cannot already have an ID", ENTITY_NAME, "idexists");
         }
-        People result = peopleService.save(people);
+        People result = peopleService.save(people, SecurityContextHolder.getContext().getAuthentication().getName());
         return ResponseEntity.created(new URI("/api/people/" + result.getId()))
-            .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
+            .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId()))
             .body(result);
     }
 
@@ -74,9 +72,33 @@ public class PeopleResource {
         if (people.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
-        People result = peopleService.save(people);
+        People result = peopleService.save(people, SecurityContextHolder.getContext().getAuthentication().getName());
         return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, people.getId().toString()))
+            .headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, people.getId()))
+            .body(result);
+    }
+
+    /**
+     * PATCH  /people/:id : Patches an existing people.
+     *
+     * @param id     id of the people
+     * @param people the people to patch
+     * @return the ResponseEntity with status 200 (OK) and with body the updated people,
+     * or with status 400 (Bad Request) if the people is not valid,
+     * or with status 500 (Internal Server Error) if the people couldn't be updated
+     * @throws URISyntaxException if the Location URI syntax is incorrect
+     */
+    @PatchMapping("/people/{id}")
+    public ResponseEntity<People> patchPeople(@PathVariable String id, @RequestBody People people) throws URISyntaxException {
+        log.debug("REST request to patch People : {}", people);
+        if (StringUtils.isEmpty(id)) {
+            throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
+        }
+        //force id from request in case it's not present in the body
+        people.setId(id);
+        People result = peopleService.update(people);
+        return ResponseEntity.ok()
+            .headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, id))
             .body(result);
     }
 
@@ -89,7 +111,7 @@ public class PeopleResource {
     @GetMapping("/people")
     public ResponseEntity<List<People>> getAllPeople(Pageable pageable) {
         log.debug("REST request to get a page of People");
-        Page<People> page = peopleService.findAll(pageable);
+        Page<People> page = peopleService.findAll(pageable, SecurityContextHolder.getContext().getAuthentication().getName());
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/people");
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
@@ -103,7 +125,7 @@ public class PeopleResource {
     @GetMapping("/people/{id}")
     public ResponseEntity<People> getPeople(@PathVariable String id) {
         log.debug("REST request to get People : {}", id);
-        Optional<People> people = peopleService.findOne(id);
+        Optional<People> people = peopleService.findOne(id, SecurityContextHolder.getContext().getAuthentication().getName());
         return ResponseUtil.wrapOrNotFound(people);
     }
 
@@ -124,7 +146,7 @@ public class PeopleResource {
      * SEARCH  /_search/people?query=:query : search for the people corresponding
      * to the query.
      *
-     * @param query the query of the people search
+     * @param query    the query of the people search
      * @param pageable the pagination information
      * @return the result of the search
      */
